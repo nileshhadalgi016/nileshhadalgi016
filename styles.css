@@ -1,3 +1,10 @@
+:root {
+    --padding-mobile: 15px;
+    --padding-desktop: 25px;
+    --border-radius: 20px;
+    --container-width: 800px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,10 +21,70 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: var(--padding-mobile);
 }
 
-/* ...existing styles... */
+/* Remove container background and box */
+.container {
+    max-width: var(--container-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: var(--padding-mobile);
+}
+
+/* Profile Section */
+.profile {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profile h1 {
+    color: white;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.profile p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 2rem 0;
+}
+
+.social-icon {
+    width: clamp(45px, 12vw, 50px);
+    height: clamp(45px, 12vw, 50px);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.2rem, 4vw, 1.4rem);
+    color: #333;
+    transition: transform 0.2s;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    background: white;
+}
 
 /* Recommended Links Styles */
 .recommended-links {
@@ -25,18 +92,19 @@ body {
     text-align: center;
 }
 
+/* Update course links styles */
 .links-list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
-    justify-content: center;
     padding: 0 10px;
     margin: 0 auto;
     max-width: 600px;
 }
 
 .course-link {
-    padding: 8px 16px;
+    width: 100%;
+    padding: 10px 20px;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     text-decoration: none;
@@ -46,22 +114,19 @@ body {
     transition: all 0.2s;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    white-space: nowrap;
-}
-
-.course-link:hover {
-    transform: translateY(-2px);
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.course-link i {
-    font-size: 1em;
-    color: #666;
+    backdrop-filter: blur(5px);
 }
 
 /* New Reels Showcase Styles */
+.reels-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
 .reels-showcase {
     margin: 30px 0;
     display: grid;
@@ -92,7 +157,7 @@ body {
     margin: 0 auto;
     scroll-snap-align: start; /* Snap alignment */
     flex: 0 0 auto;
-    width: 160px; /* Fixed width */
+    width: clamp(140px, 45vw, 160px); /* Fixed width */
 }
 
 .reel-card:hover {
@@ -210,13 +275,6 @@ body {
 }
 
 /* Add scroll indicator */
-.reels-container {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
 .scroll-indicator {
     position: absolute;
     right: 10px;
@@ -276,4 +334,56 @@ body {
 
 .affiliate-btn i {
     font-size: 1.1em;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    body {
+        padding: var(--padding-desktop);
+    }
+
+    .container {
+        padding: var(--padding-desktop);
+    }
+
+    .links-list {
+        gap: 15px;
+    }
+
+    .reels-showcase {
+        gap: 20px;
+    }
+}
+
+/* Mobile optimization for course links */
+@media (max-width: 480px) {
+    .container {
+        border-radius: calc(var(--border-radius) / 2);
+    }
+
+    .profile-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .social-icons {
+        gap: 10px;
+    }
+
+    .links-list {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+    
+    .course-link {
+        padding: 8px 16px;
+    }
+}
+
+/* Utility Classes */
+.section-title {
+    color: white;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin: 1.5rem 0 1rem;
+    text-align: center;
 }
