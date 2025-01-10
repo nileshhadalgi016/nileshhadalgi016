@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ...existing styles... */
+
+/* Recommended Links Styles */
+.recommended-links {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.links-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 0 10px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.course-link {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.course-link:hover {
+    transform: translateY(-2px);
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.course-link i {
+    font-size: 1em;
+    color: #666;
+}
+
+/* New Reels Showcase Styles */
+.reels-showcase {
+    margin: 30px 0;
+    display: grid;
+    grid-auto-flow: column;  /* Makes items flow horizontally */
+    grid-auto-columns: 160px; /* Fixed width for each column */
+    gap: 12px;
+    padding: 0 10px;
+    max-width: 100%; /* Allow full width */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+    scroll-snap-type: x mandatory; /* Snap to items when scrolling */
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for Chrome/Safari */
+.reels-showcase::-webkit-scrollbar {
+    display: none;
+}
+
+.reel-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    position: relative;
+    max-width: 160px; /* Added max-width */
+    margin: 0 auto;
+    scroll-snap-align: start; /* Snap alignment */
+    flex: 0 0 auto;
+    width: 160px; /* Fixed width */
+}
+
+.reel-card:hover {
+    transform: translateY(-5px);
+}
+
+.reel-thumbnail {
+    width: 100%;
+    aspect-ratio: 9/16;
+    object-fit: cover;
+}
+
+.reel-video {
+    width: 160px;
+    height: 240px;
+    object-fit: cover;
+    background: #000;
+    pointer-events: none; /* Prevents video controls from showing */
+    max-height: 200px; /* Added max-height */
+}
+
+.reel-card:hover .reel-video {
+    opacity: 0.9;
+}
+
+.reel-info {
+    padding: 8px; /* Reduced from 10px */
+    text-align: left;
+}
+
+.reel-views {
+    font-size: 0.8em; /* Reduced from 0.9em */
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.reel-title {
+    font-size: 0.8em; /* Reduced from 0.9em */
+    font-weight: 500;
+    margin-bottom: 3px; /* Reduced from 5px */
+    color: #333;
+}
+  
+/* New Social Icons Styles */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 22px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    background: white;
+}
+
+/* Remove or comment out the .links and .link styles as they won't be needed */
+
+/* Brands Section Styles */
+.brands-section {
+    margin: 40px 0;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.brand-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.brand-item:hover {
+    transform: translateY(-5px);
+    background: white;
+}
+
+.brand-logo {
+    width: 100%;
+    max-width: 60px;
+    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.brand-item:hover .brand-logo {
+    filter: grayscale(0%);
+}
+
+/* Add scroll indicator */
+.reels-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.scroll-indicator {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px;
+    border-radius: 50%;
+    font-size: 20px;
+    opacity: 0.7;
+    pointer-events: none;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 0.3; }
+    100% { opacity: 0.7; }
+}
+
+/* Affiliate Links Styles */
+.affiliate-section {
+    margin: 30px 0;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.affiliate-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.affiliate-btn {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.affiliate-btn:hover {
+    transform: translateY(-2px);
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.affiliate-btn i {
+    font-size: 1.1em;
+}
